@@ -1,0 +1,555 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap');
+
+$mainColor: #9356DC;
+$helpColor: #FF79DA;
+$colorAccent: #99E2D0;
+$mainPadding: 16px;
+
+body, html {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main {
+  max-width: 1220px;
+  margin: auto;
+  position: relative;
+}
+
+.topBar {
+  padding: 16px $mainPadding;
+  position: relative;
+
+  .logo {
+    font-family: "Shrikhand", "cursive";
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .backHomeDiv {
+    position: relative;
+  }
+
+  .backHome {
+    position: absolute;
+    left: 2rem;
+    height: 2rem;
+    width: 2rem;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: black;
+  }
+}
+
+.address {
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem $mainPadding;
+  background-color: rgb(243, 243, 243);
+  font-size: 1.2rem;
+  position: relative;
+
+  .addressIcon {
+    margin-right: 10px;
+  }
+
+  .addressText {
+    font-weight: 700;
+  }
+}
+
+.headerBottomDesc {
+  padding: 2rem;
+  text-align: center;
+  background-color: rgb(250, 250, 250);
+
+  .headerBottomDescTitle {
+    margin: 0;
+  }
+
+  .headerBottomDescSubtitle {
+    font-weight: 300;
+    margin: 1.5rem 0;
+  }
+
+  .headerBottomDescBtn {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 100px;
+    color: white;
+    background-color: rgb(104, 104, 104);
+    background-image: linear-gradient($mainColor, $helpColor);
+    cursor: pointer;
+    transition-duration: 0.25s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+
+    &:hover {
+      background-color: white;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.50);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+.stepBox {
+  padding: $mainPadding;
+
+  .stepBoxTitle {
+    margin-top: 0;
+  }
+
+  .stepBoxSteps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: compteListe;
+
+    @media (min-width: 960px) {
+      display: flex;
+    }
+  }
+
+  .step {
+    padding: 1.5rem;
+    margin: 16px 0 16px 0.75rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+    border-radius: 1.25rem;
+    background-color: #f6f6f6;
+    display: flex;
+    position: relative;
+
+    @media (min-width: 960px) {
+      flex: 1;
+      margin: 0 0 0 2rem;
+
+      &:first-child {
+        margin-left: 0.75rem;
+      }
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      counter-increment: compteListe 1;
+      content: counter(compteListe) " ";
+      background: $mainColor;
+      height: 1.5rem;
+      width: 1.5rem;
+      border-radius: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      position: absolute;
+      left: -0.75rem;
+    }
+  }
+
+  .stepIcon {
+    margin-right: 16px;
+    color: #7e7e7e;
+  }
+}
+
+.restaurants {
+  background-color: #f6f6f6;
+  padding: $mainPadding;
+
+  .restaurantsTitle {
+    font-weight: bold;
+  }
+}
+
+.boxs {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: 2rem;
+  row-gap: 2rem;
+
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.box {
+  background-color: white;
+  border-radius: 16px;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+
+  .boxImg {
+    height: 12rem;
+    width: 100%;
+    border: transparent solid 0;
+    border-radius: 16px 16px 0 0;
+    box-shadow: none;
+    object-fit: cover;
+  }
+
+  .boxAlert {
+    background-color: $colorAccent;
+    padding: 4px;
+    border-radius: 0.125rem;
+    position: absolute;
+    top: 16px;
+    right: 0.75rem;
+  }
+
+  .boxDesc {
+    padding: 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .boxContent {
+      flex: 1;
+
+      .boxTitle {
+        margin: 0 0 2px;
+      }
+
+      .boxSubtitle {
+        margin: 0;
+      }
+    }
+
+    .boxBtn {
+      height: 2rem;
+      width: 2rem;
+      border: transparent 0 solid;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .boxFav {
+        background-color: white !important;
+      }
+    }
+  }
+}
+
+.boxLikeBtn {
+  height: 2rem;
+  width: 2rem;
+  border: transparent 0 solid;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  background-color: black;
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &::before {
+    opacity: 0;
+    transition: 0.5s;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient($mainColor, $helpColor);
+  }
+}
+
+.boxLikeIcon {
+  transition-duration: .25s;
+  background-color: #f6f6f6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: lighten;
+}
+
+.boxLikeIcon:hover {
+  .boxLikeIcon {
+    .boxLikeIconHidden {
+      opacity: 0;
+    }
+  }
+}
+
+.footer {
+  background-color: #353535;
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    padding: $mainPadding;
+  }
+
+  .footerLogo {
+    color: white;
+    font-family: "Shrikhand", "cursive";
+    font-size: 1.2rem;
+    margin: 0 0 $mainPadding;
+  }
+
+  .listFooter {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &li {
+      margin: 4px 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .listItemFooter {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .listItemIconFooter {
+    width: 1.2rem;
+    margin-right: 4px;
+  }
+}
+
+.headerBottomImage {
+  max-width: 100%;
+  max-height: 512px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.menu {
+  border-radius: 20px 20px 0 0;
+  margin-top: -60px;
+  background-color: #f6f6f6;
+
+  .menuHeadBox {
+    padding: 16px 2rem 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+}
+
+.menuHeadTitle {
+  font-family: Shrikhand, "cursive";
+}
+
+.menuBoxs {
+  display: grid;
+
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+  }
+}
+
+.menuBox {
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0 16px;
+
+  .menuBoxTitle {
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 4px;
+    font-weight: normal;
+
+    &::after {
+      content: "";
+      width: 3rem;
+      height: 2px;
+      background-color: $colorAccent;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+}
+
+
+.menuBoxRow {
+  background-color: white;
+  padding: 16px;
+  display: flex;
+  border-radius: 0.75rem;
+  margin: 16px 0;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  animation: menuBoxAnimation .6s;
+  animation-timing-function: cubic-bezier(.5, 1.58, .34, .82);
+  animation-fill-mode: both;
+  transform: scale(0);
+  max-width: 100%;
+
+  .menuBoxRowHeader {
+    white-space: nowrap;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .menuBoxRowTitle {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .menuBoxRowDescription {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .menuBoxRowAmount {
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-left: 4px;
+  }
+
+  
+  .menuBoxRowAnimeBox {
+    background-color: $colorAccent;
+    margin: -16px -5rem -16px 16px;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.5s;
+  }
+
+  &:hover &AnimeBox {
+    margin-right: -16px;
+  }
+
+  .menuBoxRowIconDiv {
+    height: 1.6rem;
+    width: 1.6rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    transform: rotate(180deg);
+    transition-duration: 0.5s;
+
+  }
+
+  &:hover &IconDiv {
+    transform: rotate(0);
+  }
+
+  &Icon {
+    color: $colorAccent;
+  }
+}
+
+.menuMoreBtnDiv {
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  padding: 3rem 0;
+}
+
+.menuMoreBtn {
+  border: 0;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 100px;
+  color: white;
+  background-color: rgb(104, 104, 104);
+  background-image: linear-gradient($mainColor, $helpColor);
+  cursor: pointer;
+  transition-duration: 0.25s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    background-color: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.50);
+  }
+}
+
+.delay-0 {
+  animation-delay: 0s;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+.delay-4 {
+  animation-delay: 0.4s;
+}
+
+.delay-5 {
+  animation-delay: 0.5s;
+}
+
+.delay-6 {
+  animation-delay: 0.6s;
+}
+
+.delay-7 {
+  animation-delay: 0.7s;
+}
+
+.delay-8 {
+  animation-delay: 0.8s;
+}
+
+// animasyon keyframes
+@keyframes menuBoxAnimation {
+  0% {
+    transform: scale(0)
+  }
+  100% {
+    transform: scale(1);
+  }
+}
